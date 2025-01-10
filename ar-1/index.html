@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
     <head>
@@ -23,21 +24,25 @@
                     id="animated-asset"
                     src="assets/asset.glb"
                 ></a-asset-item>
+                <a-asset-item
+                    id="new-asset"
+                    src="assets1/asset1.glb"
+                ></a-asset-item>
             </a-assets>
 
+            <!-- 最初のマーカー -->
             <a-marker
-                id="animated-marker"
+                id="markerA"
                 type="pattern"
                 preset="custom"
                 url="assets/marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
             >
                 <a-entity
                     id="bowser-model"
-                   scale="1.7 1.7 1.7"
+                    scale="1.7 1.7 1.7"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
                     class="clickable"
@@ -45,24 +50,25 @@
                 ></a-entity>
             </a-marker>
 
+            <!-- 新しいマーカー -->
             <a-marker
-   　　　　　　　　　 id="new-marker"
-   　　　　　　　　　 type="pattern"
-  　　　　　　　　　  preset="custom"
-   　　　　　　　　　 url="assets1/marker1.patt"
-  　　　　　　　　　  raycaster="objects: .clickable"
- 　　　　　　　　　   emitevents="true"
-   　　　　　　　　　 cursor="fuse: false; rayOrigin: mouse;"
-　　　　　　>
-   　　　　　 <a-entity
-      　　　　　　  id="new-model"
-       　　　　　　  scale="1.7 1.7 1.7"
-       　　　　　　 position="0 0 0"
-       　　　　　　 gltf-model="assets1/asset1.glb"
-       　　　　　　 class="clickable"
-       　　　　　　 gesture-handler
- 　　　　   ></a-entity>
-　　　　　</a-marker>
+                id="new-marker"
+                type="pattern"
+                preset="custom"
+                url="assets1/marker1.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="new-model"
+                    scale="1.7 1.7 1.7"
+                    position="0 0 0"
+                    gltf-model="#new-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
